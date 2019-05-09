@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src="Image.js"></script>
+    <script>
+        "_".repeat(100).split("").forEach(() => {
+            const image = Image();
+            
+            console.log(image);
+    
+            const config = JSON.parse(image.dataset.config);
+            // Ajustar url y margin al gusto 
+            config.url = "http://placekitten.com/150";
+            config.margin = "50px"; 
+            image.dataset.config = JSON.stringify(config);
+    
+            image.dispatchEvent( new CustomEvent("@update") )
+            
+            document.body.appendChild(image);
+        });
+        
+    </script>
+</body>
+</html>
