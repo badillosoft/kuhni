@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test Input</title>
+</head>
+<body>
+    <script src="Input.js"></script>
+    <script>
+        const input = Input();
+
+        input.dataset.text = "soy un input";
+        input.dataset.color = "black";
+
+        input.dispatchEvent(new CustomEvent("@update"));
+
+        document.body.appendChild(input);
+    </script>
+</body>
+</html>
