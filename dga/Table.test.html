@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Table</title>
+</head>
+<body>
+    <script src="Table.js"></script>
+    <script>
+        const table1 = Table();
+
+        const config = JSON.parse(table1.dataset.config);
+        console.log(config);
+        config.title = 'new title';
+        config.dataRows = ["newContent1","newContent2","newContent3","newContent4"];
+        table1.dataset.config = JSON.stringify(config);
+        
+        table1.dispatchEvent( new CustomEvent("@update") )
+
+        document.body.appendChild(table1)
+
+    </script>
+</body>
+</html>
