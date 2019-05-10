@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ChartDoughnut</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+</head>
+
+<body>
+    <script src="ChartDoughnut.js"></script>
+    <script>
+        const doughnut1 = ChartDoughnut();
+
+        const config = JSON.parse(doughnut1.dataset.config);
+        console.log(config);
+        config.options.title.text =  'New Title',
+        config.data.datasets = [{
+            data: [10, 20, 30, 40, 50],
+            backgroundColor: [
+                'orange', 
+                'blue', 
+                'gray', 
+                'red', 
+                'black'
+            ]
+        }]
+        config.data.labels = ['1', '2', '3', '4', '5'];
+        doughnut1.dataset.config = JSON.stringify(config);
+
+        doughnut1.dispatchEvent(new CustomEvent("@update"))
+
+        document.body.appendChild(doughnut1);
+    </script>
+</body>
+
+</html>
