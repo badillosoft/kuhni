@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test button</title>
+</head>
+<body>
+    <script src="Button.js"></script>
+    <script>
+        const button = Button();
+
+        button.dataset.text = "soy un boton";
+        button.dataset.color = "green";
+
+        button.dispatchEvent(new CustomEvent("@update"));
+
+        document.body.appendChild(button);
+    </script>
+</body>
+</html>
