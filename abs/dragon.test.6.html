@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test dragon</title>
+</head>
+<body>
+    <script src="dragon.js"></script>
+    <script>
+        const box = document.createElement(`
+            <div>
+                <button>Hi</button>
+                <button>there</button>
+            </div>
+        `);
+
+        console.log(box);
+
+        box.addEventListener("#foo -> button:nth-child(1)", e => {
+            console.log("button 1", e);
+        });
+
+        box.addEventListener("#bar -> button:nth-child(2)", e => {
+            console.log("button 2", e);
+        });
+
+        box.dispatchEvent("#foo -> button:nth-child(1)", "hello");
+        box.dispatchEvent("#bar -> button:nth-child(2)", "world");
+
+        document.body.appendChild(box);
+    </script>
+</body>
+</html>
